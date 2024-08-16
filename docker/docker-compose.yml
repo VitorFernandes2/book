@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  postgres:
+    container_name: book_postgres
+    image: postgres:15.6
+    restart: always
+    ports:
+      - "127.0.0.1:5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=bookUser
+      - POSTGRES_DB=bookdb
+    volumes:
+      - db:/data/postgres
+
+volumes:
+  db:
